@@ -89,15 +89,16 @@ main, section {
   font-size: clamp(1rem, 2.5vw, 1.3rem);
   font-style: italic;
   font-weight: 500;
-  color: var(--marrom-escuro);
+  color: var(--marrom-escuro) !important;
   transition: opacity 0.8s ease-in-out;
   text-align: center;
 }
 
 .fade-out {
   opacity: 0;
-  color: var(--vermelho-vinho) !important;
+  color: var(--marrom-escuro) !important;
 }
+
 
 /* === TÍTULOS DAS SEÇÕES === */
 section h2,
@@ -122,7 +123,6 @@ section h4 {
   padding: 1rem;
 }
 
-
 .card:hover {
   transform: translateY(-3px);
 }
@@ -144,12 +144,13 @@ section h4 {
 
 /* === BOTÕES === */
 .btn-outline-primary {
-  border-color: var(--vermelho-vinho);
+  border: 2px solid var(--vermelho-vinho);
   color: var(--vermelho-vinho);
   background-color: transparent;
   padding: 0.5rem 1rem;
   border-radius: 8px;
-  transition: 0.3s ease;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn-outline-primary:hover,
@@ -241,6 +242,11 @@ img.img-fluid:hover {
   .cabecalho .logo {
     width: 70px;
   }
+
+  .btn-outline-primary {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 @media (max-width: 480px) {
@@ -267,5 +273,14 @@ img.img-fluid:hover {
   footer {
     font-size: 0.85rem;
     padding: 1rem 0.5rem;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .logo-parceiro {
+    width: 100px;
+    height: auto;
   }
 }
