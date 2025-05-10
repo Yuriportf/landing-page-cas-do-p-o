@@ -5,116 +5,134 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Casa do Pão</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="index.css" />
-
-
-  <style>
-    .banco span {
-      cursor: pointer;
-      color: #0d6efd;
-    }
-    .banco span:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
-  <header class="bg-light py-4 text-center">
-    <img src="logo.png" alt="Logo Casa do Pão" width="100" class="mb-2" />
+  <header class="cabecalho">
+    <img src="./imagens/Logos/images.jpeg (1).png" alt="Logo Casa do Pão" width="120" height="120" />
+
     <h1 class="h3">Casa do Pão</h1>
     <p id="fraseRotativa" class="text-muted">Onde há partilha, há esperança.</p>
   </header>
+  
+  
+<main class="container my-5">
+  <!-- Apresentação -->
+  <section class="mb-5">
+    <h2 class="text-center mb-4">Apresentação</h2>
+    <p>
+      A Casa do Pão é uma iniciativa da Arquidiocese de Olinda e Recife que oferece assistência integral a pessoas em situação de vulnerabilidade. Localizada no centro do Recife, a Casa do Pão proporciona diariamente refeições, atendimento médico, psicológico, jurídico e espiritual, além de serviços de higiene pessoal. Com o apoio de voluntários e parceiros, mais de 300 atendimentos são realizados por dia.
+    </p>
+  </section>
 
-  <main class="container my-5">
-    <section class="mb-5">
-      <h2>Apresentação</h2>
-      <p>
-        A Casa do Pão é uma iniciativa da Arquidiocese de Olinda e Recife que oferece assistência integral a pessoas em situação de vulnerabilidade. Localizada no centro do Recife, a Casa do Pão proporciona diariamente refeições, atendimento médico, psicológico, jurídico e espiritual, além de serviços de higiene pessoal, como banho e lavanderia. Com o apoio de voluntários e parceiros, mais de 300 atendimentos são realizados por dia, promovendo dignidade e esperança para aqueles que mais necessitam.
-      </p>
-    </section>
+  <!-- Botão para doação -->
+  <section class="text-center mb-5">
+    <h2 class="mb-3">Faça uma Doação de qualquer valor</h2>
+    <p style="font-size: 18px; font-weight: bold; color: #5C3A20; background: linear-gradient(135deg, #FFF7E6 0%, #fcddb1 100%); padding: 10px; border-radius: 5px; text-align: center;">
+      Clique no Coaração abaixo para ver os dados bancários:
+    </p>
+    <button class="btn btn-outline-primary btn-lg rounded-circle" style="width: 100px; height: 100px;" onclick="toggleDoacoes()">
+      <i class="bi bi-heart-fill fs-1"></i>
+    </button>
+  </section>
 
-    <section class="mb-5">
-      <h2>Doações</h2>
-      <p>Ajude a Casa do Pão com uma doação. Clique na imagem ou veja os dados bancários abaixo:</p>
+  <!-- Seção de Doações -->
+  <section id="secaoDoacoes" style="display: none;">
+    <h3 class="mb-4 text-primary">Doações Regulares</h3>
+    <div class="row g-4">
+      <!-- Bradesco -->
+      <div class="col-md-6">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Bradesco</h5>
+            <p class="card-text">
+              Agência: <span onclick="copiarTexto('1251')">1251</span><br>
+              Conta Corrente: <span onclick="copiarTexto('2157-1')">2157-1</span><br>
+              CNPJ: <span onclick="copiarTexto('52.991.463/0001-')">52.991.463/0001-</span><br>
+            </p>
+            <p class="text-muted small">Ajuda a manter os atendimentos diários com alimentação e suporte básico.</p>
+          </div>
+        </div>
+      </div>
 
-      <a href="#" target="_blank">
-        <img src="img-doacao.jpg" alt="Imagem de Doação" class="img-fluid rounded shadow-sm mb-4" />
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 bg-white text-center d-flex flex-column justify-content-center align-items-center p-4">
+          <img src="./imagens/Logos/pix-qrcode-casa-do-pão---aor-organização-religiosa.png" alt="Pix" class="mb-3" style="max-height: 200px;">
+          <div>
+            <h5 class="card-title">Chave Pix</h5>
+            <p class="card-text">
+              <span onclick="copiarTexto('pixcasadopao@aor.org.br')" class="fw-bold text-primary">pixcasadopao@aor.org.br</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Campanha Específica -->
+    <h3 class="mt-5 text-success">Doações para Programas Específicos</h3>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card h-100 shadow-sm border-success">
+          <div class="card-body">
+            <h5 class="card-title">Campanha Conta Comigo</h5>
+            <p>
+              Agência: <span onclick="copiarTexto('1850-3')">1850-3</span><br>
+              Conta Corrente: <span onclick="copiarTexto('30945-1')">30945-1</span><br>
+              CNPJ: <span onclick="copiarTexto('09.756.859/0001-08')">09.756.859/0001-08</span><br>
+              Chave Pix: <span onclick="copiarTexto('pixcasadopao@aor.org.br')">pixcasadopao@aor.org.br</span>
+            </p>
+            <p class="text-muted small">Campanha de apoio emergencial e acolhimento.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-4"><strong>Doações presenciais:</strong><br>
+      Rua do Imperador, 34 - Santo Antônio, Recife - PE
+    </p>
+  </section>
+
+  <!-- Apoiadores -->
+  <section class="mt-5 mb-5">
+    <h3 class="text-center mb-4">Apoiadores</h3>
+    <div class="d-flex flex-wrap justify-content-center gap-4 align-items-center">
+      <a href="https://www.instagram.com/arquidiocesedeolindarecife" target="_blank">
+        <img src="./imagens/Logos/arquidiocese-logo.png.jpg" alt="Arquidiocese de Olinda e Recife" width="120" height="120" style="border: 2px solid #7B3F00; padding: 10px; background: white; border-radius: 8px;" />
       </a>
+      <a href="https://www.upe.br/" target="_blank">
+        <img src="./imagens/Logos/upe-logo.png.jpg" alt="UPE" width="120" height="120" style="border: 2px solid #7B3F00; padding: 10px; background: white; border-radius: 8px;" />
+      </a>
+      <a href="https://www.ufrpe.br/br" target="_blank">
+        <img src="./imagens/Logos/ufrpe-logo.png.jpg" alt="UFRPE" width="120" height="120" style="border: 2px solid #7B3F00; padding: 10px; background: white; border-radius: 8px;" />
+      </a>
+      <a href="https://www.ufpe.br/" target="_blank">
+        <img src="./imagens/Logos/ufpe-logo.png.png" alt="UFPE" width="120" height="120" style="border: 2px solid #7B3F00; padding: 10px; background: white; border-radius: 8px;" />
+      </a>
+    </div>
+  </section>
+  
+  
 
-      <div class="banco mb-4">
-        <h4>Bradesco</h4>
-        <p>
-          Agência: <span onclick="copiarTexto('1251')">1251</span><br>
-          Conta Corrente: <span onclick="copiarTexto('2157-1')">2157-1</span><br>
-          CNPJ: <span onclick="copiarTexto('52.991.463/0001-')">52.991.463/0001-</span><br>
-          Chave Pix: <span onclick="copiarTexto('pixcasadopao@aor.org.br')">pixcasadopao@aor.org.br</span>
-        </p>
-        <p class="text-muted">Esta conta ajuda a manter os atendimentos diários com alimentação e suporte básico.</p>
-      </div>
+  <!-- Redes Sociais -->
+  <section class="text-center mb-5">
+    <h4>Redes Sociais</h4>
+    <p>
+      <i class="fab fa-instagram"></i> 
+      Instagram: 
+      <a href="https://www.instagram.com/casadopaoaor/" target="_blank">@casadopaoaor</a>
+    </p>
+  </section>
+</main>
 
-      <div class="banco mb-4">
-        <h4>Banco do Brasil</h4>
-        <p>
-          Agência: <span onclick="copiarTexto('1850-3')">1850-3</span><br>
-          Conta Corrente: <span onclick="copiarTexto('30945-1')">30945-1</span><br>
-          CNPJ: <span onclick="copiarTexto('09.756.859/0001-08')">09.756.859/0001-08</span><br>
-          Chave Pix: <span onclick="copiarTexto('pixcasadopao@aor.org.br')">pixcasadopao@aor.org.br</span>
-        </p>
-        <p class="text-muted">Sua contribuição aqui apoia cursos de capacitação e orientação jurídica.</p>
-      </div>
+<footer class="bg-light text-center py-3">
+  <p class="mb-0">&copy; 2025 Casa do Pão - Todos os direitos reservados.</p>
+</footer>
 
-      <div class="banco mb-4">
-        <h4>Campanha Conta Comigo</h4>
-        <p>
-          Agência: <span onclick="copiarTexto('1850-3')">1850-3</span><br>
-          Conta Corrente: <span onclick="copiarTexto('30945-1')">30945-1</span><br>
-          CNPJ: <span onclick="copiarTexto('09.756.859/0001-08')">09.756.859/0001-08</span><br>
-          Chave Pix: <span onclick="copiarTexto('pixcasadopao@aor.org.br')">pixcasadopao@aor.org.br</span>
-        </p>
-        <p class="text-muted">Esta campanha apoia emergências e ações pontuais de acolhimento.</p>
-      </div>
+<script src="index.js" defer></script>
 
-      <p><strong>Doações presenciais:</strong><br>
-        Rua do Imperador, 34 - Santo Antônio, Recife - PE
-      </p>
-    </section>
-
-    <section class="mb-5">
-      <h2>Redes Sociais</h2>
-      <p>
-        🌐 Instagram: <a href="https://www.instagram.com/casadopaoaor/" target="_blank">@casadopaoaor</a>
-      </p>
-    </section>
-  </main>
-
-  <footer class="bg-light text-center py-3">
-    <p class="mb-0">&copy; 2025 Casa do Pão - Todos os direitos reservados.</p>
-  </footer>
-
-  <script>
-    function copiarTexto(texto) {
-      navigator.clipboard.writeText(texto).then(() => {
-        alert("Copiado: " + texto);
-      });
-    }
-
-    const frases = [
-      "Onde há partilha, há esperança.",
-      "Servir com dignidade é acolher com amor.",
-      "Juntos, transformamos vidas.",
-      "Alimente o corpo. Fortaleça o espírito.",
-      "Pequenos gestos, grandes milagres."
-    ];
-
-    let index = 0;
-    const fraseElemento = document.getElementById("fraseRotativa");
-
-    setInterval(() => {
-      index = (index + 1) % frases.length;
-      fraseElemento.textContent = frases[index];
-    }, 5000); // troca a cada 5 segundos
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

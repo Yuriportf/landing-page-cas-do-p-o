@@ -1,62 +1,169 @@
-/* Cores principais */
 :root {
   --vermelho-vinho: #A03021;
   --telha: #A67C52;
   --creme: #FFF7E6;
   --marrom-escuro: #5C3A20;
-  --sombra-suave: rgba(0, 0, 0, 0.1);
+  --sombra-suave: rgba(0, 0, 0, 0.08);
+  --branco: #ffffff;
 }
 
-body {
+/* === RESET & BASE === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
   background-color: var(--creme);
   color: var(--marrom-escuro);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
 }
 
-header {
-  background-color: var(--creme);
-  border-bottom: 2px solid var(--telha);
+/* === ESTRUTURA PRINCIPAL === */
+main, section {
+  flex: 1;
+  width: 100%;
+  max-width: 1100px;
+  padding: 1rem 1.5rem;
+  margin: 0 auto;
 }
 
-header h1 {
-  color: var(--vermelho-vinho);
+/* === CABEÇALHO === */
+.cabecalho {
+  background: linear-gradient(135deg, #FFF7E6 0%, #fcddb1 100%);
+  padding: 4vh 2vw;
+  border-radius: 0 0 32px 32px;
+  box-shadow: 0 4px 12px var(--sombra-suave);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  height: 38vh;
+  min-height: 280px;
+  max-height: 400px;
+}
+
+.cabecalho::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 140px;
+  height: 100%;
+  background: url('caminho/para/padrao-pao.svg') no-repeat center;
+  background-size: cover;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.cabecalho .logo {
+  width: 6vw;
+  max-width: 90px;
+  min-width: 60px;
+  height: auto;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.cabecalho .logo:hover {
+  transform: scale(1.05);
+}
+
+.cabecalho h1 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  color: var(--marrom-escuro);
+  font-weight: 800;
   margin-bottom: 0.5rem;
 }
 
-header p {
-  color: var(--telha);
+#fraseRotativa {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-style: italic;
   font-weight: 500;
+  color: var(--marrom-escuro);
+  transition: opacity 0.8s ease-in-out;
+  text-align: center;
 }
 
-section h2, h4 {
+.fade-out {
+  opacity: 0;
+  color: var(--vermelho-vinho) !important;
+}
+
+/* === TÍTULOS DAS SEÇÕES === */
+section h2,
+section h3,
+section h4 {
   color: var(--vermelho-vinho);
-  border-bottom: 1px solid var(--telha);
+  border-bottom: 2px solid var(--telha);
   padding-bottom: 0.3rem;
   margin-top: 2rem;
+  font-weight: 700;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
 }
 
-.banco {
-  background-color: white;
+/* === CARDS === */
+.card {
+  background: linear-gradient(135deg, #FFF7E6 0%, #fcddb1 100%);
   border-left: 5px solid var(--telha);
-  box-shadow: 0 2px 5px var(--sombra-suave);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px var(--sombra-suave);
+  transition: transform 0.2s ease;
+  margin: 1rem 0;
   padding: 1rem;
-  margin-bottom: 1.5rem;
-  border-radius: 8px;
 }
 
-.banco span {
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.card-title {
+  color: var(--marrom-escuro);
+  font-weight: 600;
+}
+
+.card-text span {
   color: var(--vermelho-vinho);
   cursor: pointer;
   font-weight: 500;
 }
 
-.banco span:hover {
+.card-text span:hover {
   text-decoration: underline;
 }
 
+/* === BOTÕES === */
+.btn-outline-primary {
+  border-color: var(--vermelho-vinho);
+  color: var(--vermelho-vinho);
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+  background-color: var(--vermelho-vinho);
+  color: var(--branco);
+  border-color: var(--vermelho-vinho);
+}
+
+/* === LINKS === */
 a {
   color: var(--vermelho-vinho);
   text-decoration: none;
+  transition: color 0.2s;
 }
 
 a:hover {
@@ -64,23 +171,101 @@ a:hover {
   color: var(--telha);
 }
 
+/* === RODAPÉ === */
 footer {
-  background-color: var(--vermelho-vinho);
-  color: white;
-  font-size: 0.9rem;
+  background: linear-gradient(135deg, #FFF7E6 0%, #fcddb1 100%);
+  color: var(--marrom-escuro);
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+  margin-top: 2rem;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 -2px 12px var(--sombra-suave);
 }
 
-footer p {
-  margin: 0;
+footer a {
+  color: var(--telha);
+  font-weight: 500;
 }
 
-/* Imagem de doação */
+footer a:hover {
+  color: var(--vermelho-vinho);
+  text-decoration: underline;
+}
+
+/* === IMAGENS FLUIDAS === */
 img.img-fluid {
+  max-width: 100%;
+  height: auto;
   border: 3px solid var(--telha);
-  border-radius: 8px;
-  transition: transform 0.3s ease;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+  margin: 0 auto;
 }
 
 img.img-fluid:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px var(--sombra-suave);
+}
+
+/* === LOGO PARCEIRO === */
+.logo-parceiro {
+  width: clamp(80px, 12vw, 120px);
+  height: clamp(50px, 7vw, 80px);
+  object-fit: contain;
+  margin: 0.5rem;
+}
+
+/* === RESPONSIVIDADE ADICIONAL === */
+@media (max-width: 768px) {
+  .cabecalho {
+    padding: 3vh 1.5vw;
+    height: auto;
+  }
+
+  .cabecalho h1 {
+    font-size: 2rem;
+  }
+
+  #fraseRotativa {
+    font-size: 1.1rem;
+  }
+
+  section h2,
+  section h4 {
+    font-size: 1.2rem;
+  }
+
+  .cabecalho .logo {
+    width: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0.5rem;
+  }
+
+  .cabecalho {
+    padding: 2rem 0.8rem;
+  }
+
+  .cabecalho h1 {
+    font-size: 1.6rem;
+  }
+
+  #fraseRotativa {
+    font-size: 1rem;
+  }
+
+  .card {
+    font-size: 0.95rem;
+  }
+
+  footer {
+    font-size: 0.85rem;
+    padding: 1rem 0.5rem;
+  }
 }
