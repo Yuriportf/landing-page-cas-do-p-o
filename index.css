@@ -93,7 +93,6 @@ main, section {
   transition: opacity 0.8s ease-in-out;
   text-align: center;
 }
-
 .fade-out {
   opacity: 0;
   color: var(--marrom-escuro) !important;
