@@ -217,7 +217,15 @@ img.img-fluid:hover {
   object-fit: contain;
   margin: 0.5rem;
 }
-
+.Bradesco {
+  color: #E60012; /* Cor vermelho Bradesco */
+}
+.Doações.Regulares {
+  color:  var(--vermelho-vinho);
+}
+.Campanha.Conta.Comigo {
+  background-color: var(--vermelho-vinho);
+}
 /* === RESPONSIVIDADE ADICIONAL === */
 @media (max-width: 768px) {
   .cabecalho {
