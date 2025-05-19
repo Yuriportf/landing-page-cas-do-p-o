@@ -152,11 +152,29 @@ section h4 {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Hover e foco para o botão de doações */
 .btn-outline-primary:hover,
 .btn-outline-primary:focus {
   background-color: var(--vermelho-vinho);
   color: var(--branco);
   border-color: var(--vermelho-vinho);
+}
+
+/* Aplica estilos de hover para um botão com a classe btn-outline-primary dentro da seção de doações */
+section .btn-outline-primary:hover {
+  background-color: var(--vermelho-vinho);
+  color: var(--branco);
+  border-color: var(--vermelho-vinho);
+}
+
+/* Remover a borda azul de foco de todos os botões */
+.btn-outline-primary:focus {
+  outline: none; /* Remove a borda azul de foco do navegador */
+}
+
+/* Se você quiser também remover a borda azul de outros botões no geral */
+button:focus {
+  outline: none;
 }
 
 /* === LINKS === */
@@ -224,7 +242,7 @@ img.img-fluid:hover {
   color:  var(--vermelho-vinho);
 }
 .Campanha.Conta.Comigo {
-  background-color: var(--vermelho-vinho);
+  background-color: #A03021;
 }
 /* === RESPONSIVIDADE ADICIONAL === */
 @media (max-width: 768px) {
